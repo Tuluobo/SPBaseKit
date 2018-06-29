@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SPBaseKit'
-  s.version          = '0.0.1'
+  s.version          = '0.1.0'
   s.summary          = 'A swift project common pod.'
 
   s.description      = <<-DESC
@@ -22,16 +22,22 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
 
-  # s.source_files = 'SPBaseKit/Classes/**/*'
-  
   # s.resource_bundles = {
   #   'SPBase' => ['SPBaseKit/Assets/*.png']
   # }
-
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+
+  s.subspec 'Core' do |core|
+      core.source_files = 'SPBaseKit/Classes/**/*'
+  end
+
+  s.subspec 'Vender' do |vender|
+      vender.dependency 'Amplitude-iOS', '~> 4.2'
+      vender.dependency 'Fabric', '~> 1.7'
+      vender.dependency 'Crashlytics', '~> 3.10'
+  end 
+
   s.static_framework = true
-  s.dependency 'Amplitude-iOS', '~> 4.2'
-  s.dependency 'Fabric', '~> 1.7'
-  s.dependency 'Crashlytics', '~> 3.10'
+  
 end
