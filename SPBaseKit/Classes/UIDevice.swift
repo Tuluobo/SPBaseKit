@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // MARK: - UIDevice延展
 public extension UIDevice {
@@ -49,6 +50,18 @@ public extension UIDevice {
         case "AppleTV5,3":                              return "Apple TV"
         case "i386", "x86_64":                          return "Simulator"
         default:                                        return identifier
+        }
+    }
+    
+    func device(withPosition: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        return AVCaptureDevice.devices().first {
+            $0.hasMediaType(.video) && $0.position == withPosition
+        }
+    }
+    
+    func device(withLocalizedName: String, mediaType: AVMediaType) -> AVCaptureDevice? {
+        return AVCaptureDevice.devices().first {
+            $0.hasMediaType(mediaType) && $0.localizedName == withLocalizedName
         }
     }
 }
