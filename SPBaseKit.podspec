@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SPBaseKit'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'A swift project common pod.'
 
   s.description      = <<-DESC
@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Tuluobo/SPBaseKit.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
+  s.default_subspec = 'Core'
 
   # s.resource_bundles = {
   #   'SPBase' => ['SPBaseKit/Assets/*.png']
@@ -39,5 +40,5 @@ Pod::Spec.new do |s|
   end 
 
   s.static_framework = true
-  
+
 end
