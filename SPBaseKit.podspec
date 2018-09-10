@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SPBaseKit'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'A swift project common pod.'
 
   s.description      = <<-DESC
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Tuluobo' => 'tuluobo@vip.qq.com' }
   s.source           = { :git => 'https://github.com/Tuluobo/SPBaseKit.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
   s.default_subspec = 'Core'
 
   # s.resource_bundles = {
