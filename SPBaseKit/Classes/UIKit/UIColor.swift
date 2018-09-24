@@ -5,6 +5,7 @@
 //  Created by Hao Wang on 2018/6/30.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension UIColor {
@@ -64,3 +65,5 @@ extension UIColor {
         )
     }
 }
+
+#endif

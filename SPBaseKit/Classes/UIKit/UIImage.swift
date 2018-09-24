@@ -1,11 +1,12 @@
 //
 //  UIImage.swift
-//  Alamofire
+//  SPBaseKit
 //
 //  Created by Hao Wang on 2018/7/1.
 //
 
-import Foundation
+#if canImport(UIKit)
+import UIKit
 
 extension UIImage {
     public static func image(with color: UIColor) -> UIImage? {
@@ -19,3 +20,5 @@ extension UIImage {
         return image
     }
 }
+
+#endif

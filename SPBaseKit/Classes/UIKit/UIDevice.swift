@@ -1,10 +1,11 @@
 //
 //  UIDevice.swift
-//  Amplitude-iOS
+//  SPBaseKit
 //
 //  Created by Hao Wang on 2018/7/1.
 //
 
+#if canImport(UIKit)
 import UIKit
 import AVFoundation
 
@@ -37,6 +38,12 @@ public extension UIDevice {
         case "iPhone9,3":                               return "iPhone 7 (GSM)"
         case "iPhone9,2":                               return "iPhone 7 Plus (CDMA)"
         case "iPhone9,4":                               return "iPhone 7 Plus (GSM)"
+        case "iPhone10,1", "iPhone10,4":                return "iPhone 8"
+        case "iPhone10,2", "iPhone10,5":                return "iPhone 8 Plus"
+        case "iPhone10,3", "iPhone10,6":                return "iPhone X"
+        case "iPhone11,2":                              return "iPhone XS"
+        case "iPhone11,4", "iPhone11,6":                return "iPhone XS Max"
+        case "iPhone11,8":                              return "iPhone XR"
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
         case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
         case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"
@@ -64,4 +71,38 @@ public extension UIDevice {
             $0.hasMediaType(mediaType) && $0.localizedName == withLocalizedName
         }
     }
+    
+    var isIphoneXSeries: Bool {
+        return isIphoneX || isIphoneXR || isIphoneXS || isIphoneXSMax
+    }
+    
+    var isIphoneX: Bool {
+        return modelName == "iPhone X" || (modelName == "Simulator" && isIphoneXorXScreen)
+    }
+    var isIphoneXS: Bool {
+        return modelName == "iPhone XS" || (modelName == "Simulator" && isIphoneXorXScreen)
+    }
+    var isIphoneXSMax: Bool {
+        return modelName == "iPhone XS Max" || (modelName == "Simulator" && isIphoneXSMaxScreen)
+    }
+    var isIphoneXR: Bool {
+        return modelName == "iPhone XR" || (modelName == "Simulator" && isIphoneXRScreen)
+    }
+    
+    var isIphoneXorXScreen: Bool {
+        return max(UIScreen.main.bounds.size.height, UIScreen.main.bounds.size.width) == 812 &&
+            min(UIScreen.main.bounds.size.height, UIScreen.main.bounds.size.width) == 375
+    }
+    var isIphoneXSMaxScreen: Bool {
+        return max(UIScreen.main.bounds.size.height, UIScreen.main.bounds.size.width) == 896 &&
+            min(UIScreen.main.bounds.size.height, UIScreen.main.bounds.size.width) == 414 &&
+            UIScreen.main.scale == 3.0
+    }
+    var isIphoneXRScreen: Bool {
+        return max(UIScreen.main.bounds.size.height, UIScreen.main.bounds.size.width) == 896 &&
+            min(UIScreen.main.bounds.size.height, UIScreen.main.bounds.size.width) == 414 &&
+            UIScreen.main.scale == 2.0
+    }
 }
+
+#endif

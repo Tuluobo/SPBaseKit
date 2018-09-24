@@ -5,6 +5,7 @@
 //  Created by Hao Wang on 2018/7/11.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension UIViewController {
@@ -30,3 +31,5 @@ extension UIViewController {
     }
     
 }
+
+#endif

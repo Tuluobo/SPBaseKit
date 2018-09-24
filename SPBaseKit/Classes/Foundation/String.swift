@@ -1,10 +1,11 @@
 //
 //  String.swift
-//  SPBase
+//  SPBaseKit
 //
 //  Created by Hao Wang on 2018/6/23.
 //
 
+#if canImport(Foundation)
 import Foundation
 
 public protocol Emptable {
@@ -101,3 +102,5 @@ extension String {
     }
     
 }
+
+#endif
